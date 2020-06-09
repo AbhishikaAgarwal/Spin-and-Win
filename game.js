@@ -25,7 +25,8 @@ function preload()
     this.load.image('logo',"assets/spin-n-win-logo.png");
     this.load.image('wheel',"assets/wheel.png");
     this.load.image('pin',"assets/pin.png");
-        this.load.image('stand',"assets/stand.png");
+    this.load.image('prizes',"assets/prizes.png")
+    this.load.image('stand',"assets/stand.png");
 }
 
 //A function to create objects
@@ -47,8 +48,11 @@ function create()
    this.pin=this.add.sprite(w/2,h/2-380,'pin');
     this.pin.setScale(0.35);
     
-    this.add.sprite(w/4-100,h/2+100,'button').setScale(1.5);
-    button = game.add.button('button', spinwheel, this, 2, 1, 0);
+    let button = this.add.sprite(w/4-100,h/2+100,'button').setScale(1.5);
+//    button = game.add.button('button', spinwheel, this, 2, 1, 0);
+    
+    this.add.sprite(3*w/4+200,h/2,'prizes').setScale(2.0);
+    button.onclick=spinwheel();
     
 //    this.input.on("pointerdown",spinwheel,this);
 //    button.onInputOver.add(Spin Now, this);
@@ -63,6 +67,11 @@ console.log("In update");
     this.wheel.angle +=1;
 
 }
+
+function play() {
+        var audio = document.getElementById("audio");
+        audio.play();
+      }
 
 function spinwheel()
 {
