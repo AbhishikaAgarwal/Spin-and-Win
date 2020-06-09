@@ -6,9 +6,7 @@ let config = {
 		create: create,
 		update: update,
 	}
-    audio: {
-        disableWebAudio: true
-    }
+    
 
 };
 
